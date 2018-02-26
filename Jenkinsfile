@@ -2,8 +2,8 @@ pipeline {
     agent any
     
     parameters { 
-         string(name: 'tomcat_dev', defaultValue: 'localhost:8089', description: 'Staging Server')
-         string(name: 'tomcat_prod', defaultValue: 'localhost:9009', description: 'Production Server')
+         string(name: 'tomcat_dev', defaultValue: 'localhost', description: 'Staging Server')
+         string(name: 'tomcat_prod', defaultValue: 'localhost', description: 'Production Server')
     } 
  
     triggers {
@@ -23,17 +23,17 @@ stages{
             }
         }
  
-        stage ('Deployments'){
+         stage ('Deployments'){
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        bat "winscp -i **/target/*.war ${params.tomcat_dev}"
+                        bat "winscp -i **/target/*.war Suporte@${params.tomcat_dev}:F:/pessoal/cursos/jenkins/apache-tomcat-9.0.5-staging/webapps"
                     }
                 }
  
                 stage ("Deploy to Production"){
                     steps {
-                        bat "winscp -i **/target/*.war ${params.tomcat_prod}"
+                        bat "winscp -i **/target/*.war Suporte@${params.tomcat_prod}:F:/pessoal/cursos/jenkins/apache-tomcat-9.0.5-production/webapps"
                     }
                 }
             }
