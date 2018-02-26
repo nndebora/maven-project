@@ -27,13 +27,13 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        bat "winscp -i **/target/*.war {params.tomcat_dev}"
+                        bat "winscp -i **/target/*.war ${params.tomcat_dev}"
                     }
                 }
  
                 stage ("Deploy to Production"){
                     steps {
-                        bat "winscp -i **/target/*.war {params.tomcat_prod}"
+                        bat "winscp -i **/target/*.war ${params.tomcat_prod}"
                     }
                 }
             }
