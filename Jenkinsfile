@@ -33,7 +33,7 @@ stages{
  
                 stage ("Deploy to Production"){
                     steps {
-                        bat "winscp -i */webapp/target/*.war Suporte@${params.tomcat_prod}:F:/pessoal/cursos/jenkins/apache-tomcat-9.0.5-production/webapps"
+                        bat "winscp -i /webapp/target/*.war Suporte@${params.tomcat_prod}:F:/pessoal/cursos/jenkins/apache-tomcat-9.0.5-production/webapps"
                     }
                 }
             }
