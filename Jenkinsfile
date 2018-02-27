@@ -33,7 +33,10 @@ stages{
  
                 stage ("Deploy to Production"){
                     steps {
-                        bat "winscp -i C:/Program Files (x86)/Jenkins/workspace/PipelineAsCodeExample/webapp/target/*.war Suporte@${params.tomcat_prod}:F:/pessoal/cursos/jenkins/apache-tomcat-9.0.5-production/webapps"
+                        
+                        bat "winscp open sftp://Suporte:eFormAdmin123!@${params.tomcat_prod}"
+                        bat "winscp put webapp/target/*.war F:/pessoal/cursos/jenkins/apache-tomcat-9.0.5-production/webapps"
+                        bat "winscp exit"
                     }
                 }
             }
