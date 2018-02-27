@@ -33,7 +33,7 @@ stages{
  
                 stage ("Deploy to Production"){
                     steps {
-                        bat "cp  C:/Program Files (x86)/Jenkins/workspace/PipelineAsCodeExample/webapp/target/*.war Suporte@${params.tomcat_prod}:F:/pessoal/cursos/jenkins/apache-tomcat-9.0.5-production/webapps"
+                        bat "winscp -i C:/Program Files (x86)/Jenkins/workspace/PipelineAsCodeExample/webapp/target/*.war Suporte@${params.tomcat_prod}:F:/pessoal/cursos/jenkins/apache-tomcat-9.0.5-production/webapps"
                     }
                 }
             }
