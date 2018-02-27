@@ -27,7 +27,7 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        bat "winscp -i /webapp/target/*.war F:/pessoal/cursos/jenkins/apache-tomcat-9.0.5-staging/webapps"
+                        bat cp -i /webapp/target/*.war F:/pessoal/cursos/jenkins/apache-tomcat-9.0.5-staging/webapps"
                     }
                 }
  
