@@ -27,13 +27,13 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        bat "cp /webapp/target/*.war F:/pessoal/cursos/jenkins/apache-tomcat-9.0.5-staging/webapps"
+                        bat "cp webapp/target/*.war F:/pessoal/cursos/jenkins/apache-tomcat-9.0.5-staging/webapps"
                     }
                 }
  
                 stage ("Deploy to Production"){
                     steps {
-                        bat "winscp -i /webapp/target/*.war Suporte@${params.tomcat_prod}:F:/pessoal/cursos/jenkins/apache-tomcat-9.0.5-production/webapps"
+                        bat "cp  C:\Program Files (x86)\Jenkins\workspace\PipelineAsCodeExample\webapp\target\*.war Suporte@${params.tomcat_prod}:F:/pessoal/cursos/jenkins/apache-tomcat-9.0.5-production/webapps"
                     }
                 }
             }
